@@ -15,7 +15,7 @@ def apply(func: Callable):
     def return_user_id():
         return 42
 
-    >> return_user_id()
-    will return 43
+    >>> return_user_id()
+    43
     """
     raise NotImplementedError('Implement me!')
