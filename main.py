@@ -8,6 +8,10 @@ def apply(func: Callable):
     The factory accepts a function (lambda) as an input and returns a decorator
     that will return the result of the function as the first argument,
     the result of the decorated function is passed.
+    The function which the factory accepts (in
+    the example below it is a `lambda`)
+    can take one positional parameter only.
+
 
     For example:
 
