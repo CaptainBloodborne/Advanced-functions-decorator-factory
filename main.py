@@ -12,14 +12,36 @@ def apply(func: Callable):
     the example below it is a `lambda`)
     can take one positional parameter only.
 
+    Parameters
+    ----------
+    func : Callable
+        function that takes as parameter decorated function
 
-    For example:
+    Returns
+    -------
+    decorator : Callable
+         actual decorator for wrapped function
+    Examples
+    --------
 
     @apply(lambda user_id: user_id + 1)
     def return_user_id():
         return 42
 
-    >>> return_user_id()
+    return_user_id()
     43
-    """
+
     raise NotImplementedError('Implement me!')
+    """
+    def decorator(wrapped_func: Callable):
+        def wrapper(*args, **kwargs):
+            return func(
+                wrapped_func(*args, **kwargs)
+            )
+        return wrapper
+    return decorator
+
+
+@apply(lambda user_id: user_id + 1)
+def return_user_id():
+    return 42
